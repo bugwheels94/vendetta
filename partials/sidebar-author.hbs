@@ -1,0 +1,24 @@
+{{#author}}
+<section style="" class="row margin-bottom-30 hidden-xs" itemscope itemtype="http://schema.org/Person">
+  {{#if image}}
+    <figure class="col-xs-12 text-center">
+      <div class="row">
+      <div style="background-image:url({{image}});padding-bottom:100%;" class="background-setter">
+      </div>
+    </div>
+    </figure>
+  {{/if}}
+  <section class="col-xs-12 post-author-detail sidebar-box">
+    <h5 class="pt15 sidebar-post-title text-center">
+        <a href="{{url}}" class="lead">By <span itemprop="name">{{name}}</span></a>
+    </h5>
+    {{#if bio}}
+      <p class="mb15 mt15" itemprop="description">{{bio}}</p>
+     {{/if}}
+    <p class="text-center">
+      <a href="{{url}}" style="color:#000;" itemprop="url">Read more posts by this author.</a>
+    </p>
+  </section>
+
+</section>
+{{/author}}

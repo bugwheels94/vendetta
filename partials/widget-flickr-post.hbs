@@ -1,0 +1,21 @@
+
+<script>
++function(undefined){
+  if(velma.feed.flickr!==undefined&&velma.feed.flickr!==null&&typeof velma.feed.flickr==='object'){
+    $script(['https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'],function(){
+      $script(["jflickrfeed.min.js"],function(){
+        $("#flickr_widget").append('<div id="flickrfeed" class="instafeedp"><div class="text-center" style=""><span class="priority">FOLLOW US ON FLICKR</span><div class="absolute-occupier translucent" style="background:#000;"></div></div></div>');
+        var obj={
+          limit: 9,
+          qstrings: {
+            id: '139052977@N02'
+          },
+          itemTemplate: '<a style="display:inline-block;width:30%;padding-top:30%;margin:1.5%;position:relative;" href="\{{link}}"><div style="height:100%;width:100%;position:absolute;top:0;left:0;background-image:url(\{{image}});background-position:center;background-size:cover;"></div></a>'
+        }
+        $.extend(obj,velma.feed.flickr);
+        $('#flickrfeed').jflickrfeed(obj);
+      });
+    });
+  }
+}();
+</script>

@@ -1,0 +1,94 @@
+  <div>
+    <h5 class="sidebar-post-title text-center lead ptb15">READ US TOO</h5>
+    <div class="related-post-container sidebar-box loading col-sm-12 pb15">
+      <div class="loader">
+        <i class="fa fa-spinner fa-spin"></i>
+      </div>
+    </div>
+  </div>
+<script>
+$script(['https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'],function(){
+  $script(["jquery.xml2json.js"],function(){
+  var months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+  var tagEle=document.createElement("div");
+  tagEle.innerHTML='{{tags separator=""}}';
+  var tags=tagEle.getElementsByTagName("a");
+  var tagList=[];
+  var elem = document.createElement('textarea');
+  elem.innerHTML = "{{title}}";
+  var decoded = elem.value;
+
+  for(var i=0;i<tags.length;i++){
+    tagList.push(tags[i].innerHTML);
+  }
+
+  function renderSite(data) {
+    data = $.xml2json(data);
+    var posts = data.channel.item;
+    renderRelatedArticles(posts);
+  }
+  function renderRelatedArticles(posts,undefined) {
+    var $parent = $('.related-post-container');
+    if(!$parent) {return};
+    $parent.removeClass('loading').children(".loader").remove();
+    var k=0;
+    if(posts.length===1){
+      $parent.html('No Posts found');
+      return;
+    }
+    for(var i = 0; i < posts.length&&k<5;i++ ) {
+      var p = posts[i];
+      if(typeof p.category===undefined||p.title===decoded)continue;
+      var cat=p.category;
+      if( typeof cat === 'string' || cat instanceof String ) {
+        cat=[cat];
+      }
+      if(_.intersection(cat,tagList).length>0){
+          var thisList=p.category;
+          var date = new Date(p.pubDate);
+          var dateStr = date.getDate() + ' ' + months[date.getMonth()] + ' ' + date.getFullYear();
+          var $a = $('<a class="recentp-post-link" href="' + p.link + '">' + p.title + '</a>');
+          //var $a = $('<a href="' + p.link + '"><div class="date">' + dateStr + '</div><div>' + p.title + '</div></a>');
+          if(i == 4) {
+            $a.addClass('last');
+          }
+          $parent.append($a);
+          k++;
+          posts.splice(i,1);
+          i--;
+      }
+    }
+    renderLatestArticles(posts,k);
+
+  }
+  function renderLatestArticles(posts,k) {
+    var $parent = $('.related-post-container');
+    if(!$parent) {return};
+    for(var i = k; i < posts.length&&k<5; i++) {
+      var p = posts[i];
+      if(p.title===decoded){
+        continue;
+      }
+      k++;
+      var date = new Date(p.pubDate);
+      var dateStr = date.getDate() + ' ' + months[date.getMonth()] + ' ' + date.getFullYear();
+      var $a = $('<div><a class="recentp-post-link" href="' + p.link + '">' + p.title + '</a></div>');
+      //var $a = $('<a href="' + p.link + '"><div class="date">' + dateStr + '</div><div>' + p.title + '</div></a>');
+      if(i == 4) {
+        $a.addClass('last');
+      }
+      $parent.append($a);
+    }
+
+    $parent.removeClass('loading').children(".loader").remove();
+  }
+
+  $.ajax({
+    dataType: 'xml',
+    url: '{{@blog.url}}/rss',
+    type: 'GET'
+  }).success(renderSite);
+
+});
+});
+</script>

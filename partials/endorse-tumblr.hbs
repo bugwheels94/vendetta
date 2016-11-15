@@ -1,0 +1,8 @@
+<span id="tumblr_follow"></span>
+<script>
+$script(['https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'],function(undefined){
+  if(velma.follow.tumblr!==undefined&&typeof velma.follow.tumblr==='object'&&velma.follow.tumblr.blogname!==undefined&&$.trim(velma.follow.tumblr.blogname)!==''){
+      $("#tumblr_follow").append('<span class="endbut"><iframe class="btn" frameborder="0" border="0" scrolling="no" allowtransparency="true" height="22" style="padding:0;vertical-align:baseline;" width="70" src="https://platform.tumblr.com/v2/follow_button.html?type=follow&amp;tumblelog='+velma.follow.tumblr.blogname+'&amp;color=white"></iframe></span>');
+  }
+});
+</script>

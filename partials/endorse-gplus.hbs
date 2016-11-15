@@ -1,0 +1,9 @@
+<span id="gplus-follow"></span>
+<script>
+$script(['https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'],function(undefined){
+  if(velma.url.gplus!==undefined&&typeof velma.url.gplus==='string'&&$.trim(velma.url.gplus)!==''&&(velma.follow.gplus===undefined||velma.follow.gplus!=='disabled')){
+			$script(["https://apis.google.com/js/platform.js"],function(){});
+      $("#gplus-follow").append('<span class="endbut"><div class="g-follow" data-annotation="none" data-href="'+velma.url.gplus+'" data-rel="author"></div></span>')
+    }
+});
+</script>

@@ -1,0 +1,135 @@
+{{!< default}}
+{{! The comment above "< default" means - insert everything in this file into
+	the {body} of the default.hbs template, which contains our header/footer. }}
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+		{{! Everything else gets inserted here }}
+
+<article itemscope itemtype="http://schema.org/BlogPosting" class="row" style="height:100%;">
+	<link itemprop="mainEntityOfPage" href="{{url absolute='true'}}" />
+	<meta itemprop="publisher" content="{{@blog.title}}"></meta>
+	{{#if image}}
+	<div class="col-md-6 header-flex-height" style="background:#000;">
+		<div class="header-movable" style="z-index:11;">
+			{{> "header"}}
+		</div>
+		<div class="row header-movable background-setter hidden-xs hidden-sm" style="background-image:url({{image}});height:100%; padding-right:15px;"></div>
+		<div class="row visible-xs visible-sm">
+			<img src={{image}} itemprop="image" style="width:100%;">
+		</div>
+	</div>
+	<div class="col-md-6 post-has-img" >
+		<div class="visible-md visible-lg" style="height:30px;"></div>
+		{{else}}
+		<div class="col-sm-12" style="height:100%">
+			{{> "fancyHeader"}}
+		{{/if}}
+		<main role="main" class="row">
+			<div class="col-sm-offset-1 col-sm-10">
+				{{^if image}}
+				<div class="row">
+					<div class="col-sm-8 mt30 post-box">
+				{{/if}}
+				<header class="col-xs-12">
+					<div class="visible-md visible-lg" style="height:15px;"></div>
+					<section>
+						{{tags prefix='<span class="post-tags row"><div class="inline-block-middle" style="border-top:solid 3px #d6a915; margin-right:10px;width:50px;"></div><span itemprop="keywords">' suffix="</span>__</span>" separator="</span> , <span itemprop='keywords'>"}}
+						<h2 class="post-title ptb30" itemprop="headline">
+							{{title}}
+						</h2>
+						<div class="visible-md visible-lg" style="height:15px;"></div>
+					</section>
+				</header>
+				<section class="post-content mtb30" itemprop="articleBody">
+					{{content}}
+				</section>
+				<footer>
+					<div class="row">
+						<div class="col-xs-5 mb15">
+							<span class="fa fa-calendar" style="color:#444;"></span>
+							<time itemprop="datePublished" class="small" content={{date format='YYYY-MM-DD'}}>{{date format='MMMM DD,YYYY'}}</time>
+						</div>
+						<div class="col-xs-7 text-right">
+								{{> "share-post"}}
+						</div>
+					</div>
+				</footer>
+				<div class="mb30">
+					{{#author}}
+					<section class="post-author-end row">
+						{{#if image}}
+						<figure class="col-sm-3 col-xs-12 text-center">
+							<div class="row">
+							<div style="background-image:url({{image}});padding-bottom:100%;" class="background-setter">
+							</div>
+						</div>
+						</figure>
+						<section class="col-sm-9 ptb15 col-xs-12 post-author-detail">
+						{{else}}
+						<section class="col-sm-12 ptb15 col-xs-12 post-author-detail">
+						{{/if}}
+
+							<h3 class="mt0 lead"><a itemprop="author" href="{{url}}" class="post-author-name col000">{{name}}</a></h3>
+							{{#if bio}}
+								<p class="mb15 mt15">{{bio}}</p>
+							 {{/if}}
+							{{#if location}}
+								<span class="mb15"><span class='fa fa-map-marker' aria-hidden='true'></span> <span class=" col999">{{location}}</span></span>
+							{{/if}}
+							{{#if website}}
+								<span class="mb15 ml15"><span class='fa fa-link' aria-hidden='true'></span><a href="{{website}}" class="col999" itemprop="url" /> My Website</a></span>
+							{{/if}}
+						</section>
+					</section>
+					{{/author}}
+				</div>
+				<div class="col-lg-12">
+					<div id="disqus_thread"></div>
+					<div id="fb_comments"></div>
+					{{> "disqus-comments"}}
+					{{> "facebook-comments"}}
+				</div>
+				{{^if image}}
+			</div>
+			<div class="col-sm-4 mt30 ">
+				{{> "sidebar"}}
+			</div>
+		</div>
+		{{else}}
+		<div class="col-lg-12">
+			{{> advertisement}}
+		</div>
+	{{/if}}
+	</div>
+	</main>
+	<div class="sidebar col-lg-12">
+		{{> advertisement}}
+	</div>
+
+	<aside class="row">
+		<span class="smart"></span>
+			{{#next_post}}
+			<span></span>
+			{{/next_post}}
+		{{#prev_post}}
+		<a href="{{url}}" class="shadow-box transitioned text-center adj-post {{#if image}}background-setter " style="background-image: url({{image}});{{else}}{{/if}}" alt="{{name}}">
+			<section style="display:inline-block;vertical-align:middle;line-height:normal;">
+					<span class="adjacent-post-category white-if-bg">Previous Post</span>
+					<h2 class="adjacent-post-title white-if-bg">{{title}}</h2>
+			</section>
+			<span class="valign-support"></span>
+		</a>{{/prev_post}}<span class="smart"></span>{{#prev_post}}<span></span>{{/prev_post}}
+		{{#next_post}}
+		<a href="{{url}}"  class="shadow-box transitioned text-center adj-post {{#if image}} background-setter" style="background-image: url({{image}});{{else}}{{/if}}" alt="{{name}}">
+			<section style=" display:inline-block;vertical-align:middle;line-height:normal;">
+					<span class="adjacent-post-category white-if-bg">Next Post</span>
+					<h2 class="adjacent-post-title white-if-bg">{{title}}</h2>
+			</section>
+		</a>
+		{{/next_post}}
+	</aside>
+	{{> "fancyFooter"}}
+	</div>
+</article>
+
+{{/post}}

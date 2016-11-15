@@ -1,0 +1,8 @@
+<script>
+$script(['https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'],function(undefined){
+  if(velma.url.twitter!==undefined&&typeof velma.url.twitter==='string'&&$.trim(velma.url.twitter)!==''&&velma.feed.twitter!==undefined&&typeof velma.feed.twitter==='object'&&velma.feed.twitter.id!==undefined&&$.trim(velma.feed.twitter.id)!==''){
+      $script(["//platform.twitter.com/widgets.js"],function(){});
+      $("#widget_twitter_sidebar").append('<a class="twitter-timeline"  href="'+velma.url.twitter+'" data-widget-id="'+velma.feed.twitter.id+'">Tweets by {{@blog.title}}</a>');
+    }
+});
+</script>

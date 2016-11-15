@@ -1,0 +1,9 @@
+<span id="youtube_subscribe"></span>
+<script>
+$script(['https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'],function(undefined){
+  if(velma.follow.youtube!==undefined&&typeof velma.follow.youtube==='object'&&velma.follow.youtube.channel!==undefined&&$.trim(velma.follow.youtube.channel)!==''){
+			$script(["https://apis.google.com/js/platform.js"],function(){});
+      $("#youtube_subscribe").append('<span class="endbut"><div class="g-ytsubscribe" data-channel="'+velma.follow.youtube.channel+'" data-layout="default" data-count="hidden"></div></span>')
+  }
+});
+</script>

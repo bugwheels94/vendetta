@@ -1,0 +1,32 @@
+<div id="linkme" class="linkme"></div>
+<script>
++function(){
+  var map={
+    twitter:"twitter-square",
+    facebook:"facebook-square",
+    gplus:"google-plus-square",
+    linkedin:"linkedin-square",
+    youtube:"youtube-square",
+    flickr:"flickr",
+    tumblr:"tumblr-square",
+    instagram:"instagram"
+  }
+  var map2={
+    twitter:"Twitter",
+    facebook:"Facebook",
+    gplus:"Google Plus",
+    linkedin:"Linkedin",
+    youtube:"Youtube",
+    flickr:"Flickr",
+    tumblr:"Tumblr",
+    instagram:"Instagram"
+  }
+  var lm=document.getElementById("linkme");
+  for(var key in velma.url){
+    if(key!=="end")
+    lm.innerHTML+='<a class="transitioned2" target="_blank" title="'+map2[key]+'" href="'+velma.url[key]+'"><i class="fa fa-'+map[key]+'"></i></a>';
+  }
+  lm.innerHTML+='<a class="transitioned2" target="_blank" title="RSS Feed" href="{{@blog.url}}/rss/"><i class="fa fa-rss"></i></a>';
+  lm.id='';
+}();
+</script>

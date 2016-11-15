@@ -1,0 +1,42 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+{{! The big featured header }}
+{{! The main content area on the homepage }}
+	{{! Everything else gets inserted here }}
+	{{> "fancyHeader"}}
+	<div class="row">
+		<div class="col-sm-12 mb30">
+			{{#tag}}
+			<section class="author-detail background-setter row" {{#if cover}}style="background-image:url({{cover}});"{{/if}} itemscope itemtype="http://schema.org/Person">
+				<div class="col-sm-10 col-sm-offset-1 mt30 mb30">
+					<div class="row">
+						{{#if image}}
+							<figure class="col-sm-3 col-xs-12 text-center background-setter">
+								<div style="background-image:url({{image}});padding-bottom:100%;" class="background-setter">
+								</div>
+							</figure>
+						{{/if}}
+						<section class="col-sm-9 col-xs-12 post-author-detail">
+								<h3 class="mt0"><a href="{{url}}" class="post-author-name colfff" itemprop="name">{{name}}</a><span class="colddd lead" > ({{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}) </span></h3>
+								{{#if description}}
+									<p class="mb15 mt15 coleee" itemprop="description">{{description}}</p>
+								 {{/if}}
+						</section>
+					</div>
+				</div>
+			</section>
+			{{/tag}}
+		</div>
+		<div class="col-sm-1">
+		</div>
+		<div class="col-sm-10 post-list-container">
+			<main role="main">
+				<div class="post-list" >
+					{{! The tag below includes the post loop - partials/loop.hbs }}
+					{{> "loop"}}
+				</div>
+			</main>
+		</div>
+		<div class="col-sm-1"></div>
+	</div>
+	{{> "fancyFooter"}}

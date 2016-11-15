@@ -1,0 +1,9 @@
+
+<script>
++function(undefined){
+  if(velma.comment.facebook!==undefined&&velma.comment.facebook==='enabled'){
+    document.getElementById("fb_comments").innerHTML='<div class="fb-comments" data-href="{{url absolute="true"}}" data-width="100%"></div>';
+    $script(["//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5"],function(){});
+  }
+}();
+</script>

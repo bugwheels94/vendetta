@@ -1,0 +1,9 @@
+
+<script>
+$script(['https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'],function(undefined){
+  if(velma.url.facebook!==undefined&&typeof velma.url.facebook==='string'&&$.trim(velma.url.facebook)!==''&&(velma.feed.facebook===undefined||velma.feed.facebook!=='disabled')){
+      $script(["//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5"],function(){});
+      $("#widget_fb_sidebar").append('<div id="fb_page" class="fb-page" data-href="'+velma.url.facebook+'" data-width="100%" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook </a></blockquote></div></div>')
+    }
+});
+</script>

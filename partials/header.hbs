@@ -1,0 +1,31 @@
+<header class="normal-header" style="z-index:11;">
+	<div class="col-sm-11 col-sm-offset-1">
+		<div class="col-xs-3">
+			<a href="{{@blog.url}}" class="normal-header-title">
+				{{#if @blog.logo}}
+					<img style="max-height:30px;" alt="logo" src="{{@blog.logo}}"/>
+					{{else}}
+				{{@blog.title}}
+				{{/if}}
+			</a>
+		</div>
+		<div class="text-right col-xs-8">
+			<div class="priority" style="color:#fff;line-height:50px;display:inline-block;">
+				<span class="fa fa-bars visnav" aria-hidden="true"></span>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12 text-right">
+		<nav class="hidden-nav transitioned2 flipped2">
+			{{navigation}}
+		</nav>
+	</div>
+</header>
+<script>
+$script(['https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'],function(){
+	$('.visnav').click(function(){
+		$(".hidden-nav").toggleClass("flipped2");
+	});
+});
+
+</script>

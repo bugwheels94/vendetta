@@ -1,0 +1,79 @@
+<article class="{{post_class}} col-xs-12 mb30">
+    <div class="row">
+    {{#if image}}
+        <div class="col-sm-6 col-sm-push-6">
+            <div class="hidden-xs" style="height:90px;"> </div>
+    {{else}}
+        <div class="col-sm-12 text-center">
+    {{/if}}
+        <header class="mb15 inline-block-middle" style="width:99%;">
+            <div class="title-photo-feature">
+                <div class="post-list-tags">
+                    <span>{{tags prefix=" " separator="</span>, <span>" suffix=" __"}}</span>
+                </div>
+                <h2 class="post-list-title">
+                    <a href="{{url}}" class="col000">
+                        {{{title}}}
+                    </a>
+                </h2>
+                {{#author}}
+                  <a href="{{url}}" class="col666">
+                    <span>
+                      <span class="fa fa-user"></span>
+                      <span>{{name}}</span>
+                    </span>
+                  </a>
+                {{/author}}
+                <span class="ml15 col666">
+                  <span class="fa fa-calendar"></span>
+                  <time content={{date format='YYYY-MM-DD'}}>{{date format='MMMM DD,YYYY'}}</time>
+                </span>
+
+            </div>
+        </header>
+        <div class="valign-support"></div>
+      </div>
+      {{#if image}}
+      <div class="col-sm-6 col-sm-pull-6 text-center mb30 mt30" style="perspective:1000px;">
+          <a href="{{url}}" class="row background-setter tilted shadow-box transitioned2" data-bg="{{image}}">
+          </a>
+      </div>
+      {{/if}}
+    </div>
+    <div class="row">
+      <p class="post-list-content col-xs-12 mb15 mt30">{{excerpt words="50"}}...</p>
+
+  </div>
+    <footer class="row">
+        <div class="col-xs-5 mt30 comment-count small">
+            <a href="{{url}}">
+              <i class="fa fa-comment-o"></i>
+            </a>
+            <a class="fb-comment-count" href="{{url}}">
+              <span class="fb-comments-count" data-href="{{url absolute="true"}}"></span>
+            </a>
+            <a href="{{url}}#disqus_thread">Comment</a>
+        </div>
+        <div class="col-xs-7 mt30 text-right">
+            <span class="text-nowrap share-post-container">
+                {{> "share-post"}}
+            </span>
+        </div>
+    </footer>
+    <div class="text-center row">
+        <div class="col-xs-12 post-list-expand mtb15">
+            <div class="post-list-expand-before"></div>
+            <div class="post-list-expand-after transitioned"></div>
+            <div>
+                <a href="{{url}}">
+                    <span class="inline-block-middle col999"><span class='fa fa-2x fa-angle-left' aria-hidden='true'></span></span>
+                    <strong class="inline-block-middle col666"> READ MORE </strong>
+                    <span class="inline-block-middle col999"><span class='fa fa-2x fa-angle-right' aria-hidden='true'></span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</article>
+{{! This is the post loop - each post will be output using this markup }}
+    {{! Previous/next page links - displayed on every page }}

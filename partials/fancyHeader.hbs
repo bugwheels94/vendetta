@@ -1,0 +1,69 @@
+<header class="row noselect fancy-cover{{#if @blog.cover}} background-setter" data-bg="{{@blog.cover}}" id="blog-cover-bg{{/if}}" >
+	<div class="col-md-9">
+		{{#if @blog.navigation}}
+		<div class="row">
+			<div class="col-xs-12">
+					{{#if @blog.logo}}
+					<a href="{{@blog.url}}" class="col-xs-6 col-sm-1 col-md-1" style="line-height:60px;">
+						<img style="height:40px;" alt="logo" src="{{@blog.logo}}"/>
+					</a>
+					{{else}}
+					<div class="col-xs-6"></div>
+					{{/if}}
+				<div class="text-right col-xs-6 visible-xs visnav priority plr15">
+						Menu <span class="fa fa-bars" aria-hidden="true"></span>
+				</div>
+				<div id="hideshow" class="col-sm-11 col-md-11 col-xs-12 flipped transitioned2 priority">
+					<nav class="header-nav">
+						{{navigation}}
+					</nav>
+				</div>
+			</div>
+		</div>
+		<script>
+		$script(['https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'],function(){
+			$('.visnav').click(function(){
+				$("#hideshow").toggleClass("flipped");
+			});
+		});
+		</script>
+		{{/if}}
+		<div class="text-center row" style="height:100%;">
+			<div class="col-md-8 col-md-push-4" style="height:100%;">
+				<div class="inline-block-middle">
+					<div class="hidden-xs" style="height:60px;"></div>
+					<div class="blog-title-container">
+						<section>
+							<a href="{{@blog.url}}">
+								<h1 class="mt0 blog-title">
+									{{@blog.title}}
+								</h1>
+							</a>
+							<div style="border-bottom:solid 1px #aaa;margin-top:10px;">
+								<h5 class="blog-description">
+										{{@blog.description}}
+								</h5>
+								<div style="border-top:solid 1px #ccc;margin:3px;"></div>
+							</div>
+						</section>
+					</div>
+					<div class="hidden-xs" style="height:60px;"></div>
+				</div>
+				<div class="valign-support"></div>
+			</div>
+			<div class="col-md-4 col-md-pull-8 hidden-xs col-sm-8 col-sm-offset-2 col-md-offset-0">
+				<div class="mtb15">
+						{{> "newsletter"}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="header-link">
+			{{> "link-blog"}}
+		</div>
+	</div>
+	{{^if @blog.cover}}
+		<div class="col-sm-offset-3 col-sm-6" style="border-top:solid 1px #ddd;"></div>
+	{{/if}}
+</header>

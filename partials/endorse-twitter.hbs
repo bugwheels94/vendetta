@@ -1,0 +1,9 @@
+<span id="twitter_follow"></span>
+<script>
+$script(['https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'],function(undefined){
+  if(velma.url.twitter!==undefined&&typeof velma.url.twitter==='string'&&$.trim(velma.url.twitter)!==''&&(velma.follow.twitter===undefined||velma.follow.twitter!=='disabled')){
+      $script(["https://platform.twitter.com/widgets.js"],function(){});
+      $("#twitter_follow").html('<span class="endbut"><a class="twitter-follow-button" href="'+velma.url.twitter+'" data-show-screen-name="false" data-show-count="false"></a></span>');
+  }
+});
+</script>

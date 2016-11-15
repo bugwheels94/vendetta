@@ -1,0 +1,9 @@
+<span id="linkedin_follow"></span>
+<script>
+$script(['https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'],function(undefined){
+  if(velma.follow.linkedin!==undefined&&typeof velma.follow.linkedin==='object'&&velma.follow.linkedin.id!==undefined&&$.trim(velma.follow.linkedin.id)!==''){
+			$script(["//platform.linkedin.com/in.js"],function(){});
+      $("#linkedin_follow").append('<span class="endbut"><script type="IN/FollowCompany" data-id="'+velma.follow.linkedin.id+'"></scr'+'ipt></span>');
+    }
+});
+</script>

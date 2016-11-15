@@ -1,0 +1,57 @@
+{{!< default}}
+{{! The comment above "< default" means - insert everything in this file into
+	the {body} of the default.hbs template, which contains our header/footer. }}
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+		{{! Everything else gets inserted here }}
+
+<article itemscope itemtype="http://schema.org/BlogPosting" class="row" style="height:100%;">
+	<link itemprop="mainEntityOfPage" href="{{url absolute='true'}}" />
+	<meta itemprop="publisher" content="{{@blog.title}}"></meta>
+	{{#if image}}
+	<div class="col-md-6 header-flex-height" style="background:#000;">
+		<div class="header-movable" style="z-index:11;">
+			{{> "header"}}
+		</div>
+		<div class="row header-movable background-setter hidden-xs hidden-sm" style="background-image:url({{image}});height:100%; padding-right:15px;"></div>
+		<div class="row visible-xs visible-sm">
+			<img src={{image}} itemprop="image" style="width:100%;">
+		</div>
+	</div>
+	<div class="col-md-6 post-has-img" >
+		<div class="visible-md visible-lg" style="height:30px;"></div>
+		{{else}}
+		<div class="col-sm-12" style="height:100%">
+			{{> "fancyHeader"}}
+		{{/if}}
+		<main role="main" class="row">
+			<div class="col-sm-offset-1 col-sm-10">
+				{{^if image}}
+				<div class="row">
+					<div class="col-sm-12 mt30 post-box">
+				{{/if}}
+				<header class="col-xs-12">
+					<div class="visible-md visible-lg" style="height:15px;"></div>
+					<section>
+						{{tags prefix='<span class="post-tags row"><div class="inline-block-middle" style="border-top:solid 3px #d6a915; margin-right:10px;width:50px;"></div><span itemprop="keywords">' suffix="</span>__</span>" separator="</span> , <span itemprop='keywords'>"}}
+						<h2 class="post-title ptb30" itemprop="headline">
+							{{title}}
+						</h2>
+						<div class="visible-md visible-lg" style="height:15px;"></div>
+					</section>
+				</header>
+				<section class="post-content mtb30" itemprop="articleBody">
+					{{content}}
+				</section>
+				{{^if image}}
+			</div>
+		</div>
+		{{else}}
+	{{/if}}
+	</div>
+	</main>
+	{{> "fancyFooter"}}
+	</div>
+</article>
+
+{{/post}}

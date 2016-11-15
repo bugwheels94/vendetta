@@ -1,0 +1,5 @@
+<ul class="list-unstyled navigation">
+    {{#foreach navigation}}<li class="{{#if current}}active{{/if}}" role="presentation">
+      <a class="transitioned2" href="{{url absolute="true"}}">{{label}}</a>
+    </li>{{/foreach}}
+</ul>

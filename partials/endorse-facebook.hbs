@@ -1,0 +1,9 @@
+<span id="fb_like"></span>
+<script>
+$script(['https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'],function(undefined){
+  if(velma.url.facebook!==undefined&&typeof velma.url.facebook==='string'&&$.trim(velma.url.facebook)!==''&&(velma.follow.facebook===undefined||velma.follow.facebook!=='disabled')){
+    $script(["//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5"],function(){});
+    $("#fb_like").append('<span style="width:50px;display:inline-block;"><div class="fb-like" data-href="'+velma.url.facebook+'" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div></span>');
+  }
+});
+</script>

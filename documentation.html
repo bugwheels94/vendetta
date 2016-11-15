@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="pandoc.css" type="text/css" />
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#vendetta-documentation">Vendetta documentation</a></li>
+<li><a href="#how-to-open-the-admin-panel">How to open the admin panel</a></li>
+<li><a href="#how-to-install-the-theme-in-the-server.">How to install the theme in the server.</a></li>
+<li><a href="#how-to-configure-the-theme">How to configure the theme</a></li>
+<li><a href="#comment-management-system">Comment Management System</a><ul>
+<li><a href="#how-to-insert-disqus-comment-system">How to insert disqus comment system</a></li>
+<li><a href="#how-to-insert-facebook-comment-system">How to insert facebook comment system</a></li>
+</ul></li>
+<li><a href="#how-to-set-social-media-profiles">How to set social media profiles</a></li>
+<li><a href="#embedding-timelines">Embedding Timelines</a><ul>
+<li><a href="#facebook-timeline">Facebook Timeline</a></li>
+<li><a href="#twitter-user-timeline">Twitter User Timeline</a></li>
+<li><a href="#instagram-feed">Instagram Feed</a></li>
+<li><a href="#flickr-feed">Flickr Feed</a></li>
+</ul></li>
+<li><a href="#newsletter">Newsletter</a></li>
+<li><a href="#google-analytics">Google Analytics</a></li>
+<li><a href="#privacy-policy">Privacy policy</a></li>
+<li><a href="#advertisement">Advertisement</a></li>
+<li><a href="#demo-file">Demo file</a></li>
+<li><a href="#how-to-change-the-favicon">How to change the favicon</a></li>
+<li><a href="#how-to-get-social-links-indexed-by-social-engines">How to get social links indexed by social engines</a></li>
+<li><a href="#credits">Credits</a></li>
+<li><a href="#release">Release</a></li>
+</ul>
+</div>
+<h1 id="vendetta-documentation">Vendetta documentation</h1>
+<h1 id="how-to-open-the-admin-panel">How to open the admin panel</h1>
+<p>Go to yourblogaddress/admin, so if your blog is http://example.com then you need to open http://example.com/admin</p>
+<h1 id="how-to-install-the-theme-in-the-server.">How to install the theme in the server.</h1>
+<p>1.Go to the ghost folder then content -&gt; themes and copy the Vendetta theme folder in the theme folder. 2.Restart the ghost server.</p>
+<h1 id="how-to-configure-the-theme">How to configure the theme</h1>
+<p>1.Go to the admin panel and click on code injection in left side.<br />
+2.Go to the blog header section and copy the below code</p>
+<pre><code>    &lt;script&gt;
+        vendetta.url={
+    //      facebook:&quot;https://www.facebook.com/RedHive-Software-623049087845699/&quot;,
+    //      twitter:&quot;https://www.twitter.com/redhivesoftware&quot;,
+    //      tumblr:&quot;https://www.tumblr.com/blog/redhivesoftware&quot;,
+    //      gplus:&quot;http://plus.google.com/u/0/115145342026041498272&quot;,
+    //      youtube:&quot;your youtube url&quot;,
+    //      linkedin:&quot;your linkedin url&quot;,  
+    //      instagram:&quot;https://www.instagram.com/vendettaredhivesoftware&quot;,  
+    //      flickr:&quot;https://www.flickr.com/photos/redhivesoftware/&quot;,  
+            end:true
+        }
+        vendetta.comment={
+    //      disqus:&#39;vendetta123&#39;,
+    //      facebook:&#39;enabled&#39;,
+            end:true
+        }
+        vendetta.feed={
+    //      facebook:&#39;disabled&#39;,
+    //      twitter:{
+    //          id:&#39;696094298215940096&#39;
+    //      },
+    //      instagram:{
+    //          userId:&#39;2899013383&#39;,
+    //          accessToken:&#39;2899013383.a525e19.a119b4854c944131bbe5f6632ef76a48&#39;
+    //      },
+    //      flickr:{
+    //          qstrings:{
+    //              id:&#39;139052977@N02&#39;
+    //          }
+    //      },
+            end:true
+        }
+        vendetta.newsletter={
+    //      popup:true,
+    //      hide:true,
+    //      time:10,
+            end:true
+        }
+    //vendetta.analytics=&#39;UA-74085954-1&#39;;
+      &lt;/script&gt;</code></pre>
+<h1 id="comment-management-system">Comment Management System</h1>
+<h2 id="how-to-insert-disqus-comment-system">How to insert disqus comment system</h2>
+<p>1.Go to http://disqus.com and signup/login for free.<br />
+2.After that click on the setting icon on top right corner of home page and from dropdown select <code>Add Disqus to site</code><br />
+<img src="http://i.imgur.com/hWnGZa3.png" alt="Disqus how to" /><br />
+3.After this click on <code>Install on your site</code> on the top right corner<br />
+<img src="http://i.imgur.com/RSImt0R.png" alt="Disqus how to" /><br />
+4.Fill the form provided next and then click on button “Next”<br />
+1. Insert your blog name in the field <code>site name</code><br />
+2. Choose a unique disqus url which will be used later to access moderation tools and site settings. This will also become your site’s “shortname”.<br />
+3. Select the appropriate category for your blog</p>
+<p>Form showing after filling entries to register for a blog named “Vendetta”<br />
+<img src="http://i.imgur.com/fp6kIbm.png" alt="Disqus how to" /><br />
+5.After that close the browser tab.<br />
+6.Go to the admin panel and click on code injection in left side.<br />
+7.Go to the line no 14 on blog header section and replace the Vendetta123 with your disqus short name. // from the line.</p>
+<h2 id="how-to-insert-facebook-comment-system">How to insert facebook comment system</h2>
+<ol style="list-style-type: decimal">
+<li>Go to the admin panel and click on code injection in left side.<br />
+</li>
+<li>Go to the line no 15 on blog header section and delete the two // from the line.</li>
+</ol>
+<h1 id="how-to-set-social-media-profiles">How to set social media profiles</h1>
+<p>1.Go to the admin panel and click on code injection in left side.<br />
+2.Go to the line no 3 to 10 on blog header section.<br />
+3.Change the url with your social media links to the corresponding category and make sure that those lines are not prefixed with 2 forward slashes(//).<br />
+4.In order to remove any profile just add two // to the beginning of the line.</p>
+<h1 id="embedding-timelines">Embedding Timelines</h1>
+<h2 id="facebook-timeline">Facebook Timeline</h2>
+<p>THe TimeLine is enabled automatically when you set the social media profile for facebook but if you want to remove the TimeLine just remove the 2 forward slashes from line 19 and add again // in future if you want to enable them again</p>
+<h2 id="twitter-user-timeline">Twitter User Timeline</h2>
+<p>1.Sign in to Twitter.<br />
+2.Go to your settings and select Widgets.<br />
+3.Click Create new.<br />
+4.Choose the User Time(which is default selection) of embedded timeline you’d like and start to configure it:<br />
+1. For User Timeline, enter the username of the user whose Tweets you want to display. operators).</p>
+<p>4.Make sure to select Safe mode if you want to exclude sensitive content, profanity, etc.<br />
+5.Set height to 400, theme as light and link color to match your website. You can also configure your embedded timeline to auto-expand Tweets containing media.<br />
+6.Click create widget and copy the code to notepad and look for data-widget-id and copy the number.<br />
+7.Now close the tab and go to the admin panel and click on code injection in left side.<br />
+8.Go to the line no 20,21 and 22 on blog header section and remove the // from each line.<br />
+9.Now copy that pasted number to line 22 in place of the existing number.</p>
+<h2 id="instagram-feed">Instagram Feed</h2>
+<p>1.Go to the admin panel and click on code injection in left side.<br />
+2.Go to the line no 23,24,25 and 26 on blog header section and remove the // from each line.<br />
+1. Go to https://instagram.com/oauth/authorize/?client_id=a525e19ee1494f158f029a78de89369e&amp;redirect_uri=http://instafeedjs.com&amp;response_type=token<br />
+2. Now copy the access Token provided to line number 25 in place of that string<br />
+3. And copy the userId to line number 24 in place of that number.</p>
+<h2 id="flickr-feed">Flickr Feed</h2>
+<p>1.Go to the admin panel and click on code injection in left side.<br />
+2.Go to the line no 27,28,29,30 and 31 on blog header section and remove the // from each line.<br />
+3.Get your Flickr ID either by idgettr.com or by clicking on your buddy icon and take out the number part<br />
+4.Now copy the ID to line 29 in place of that numerical value</p>
+<h1 id="newsletter">Newsletter</h1>
+<p>1.Go to mailchimp.com and signup/login.<br />
+2.Then go to Lists and click on create new list<img src="http://i.imgur.com/G2j1Xnv.png" alt="New List" /><br />
+3.Then Fill in the details as appropriate<img src="http://i.imgur.com/2CQzNMp.png" alt="Filling form" /><br />
+4.After that click on signup forms and then embedded forms <img src="http://i.imgur.com/WbX6b5N.png" alt="Selecting type" /><br />
+5.After select Naked Forms and uncheck and deselct everything else than “Show only required fields”<img src="http://i.imgur.com/PxMnGVN.png" alt="creating form" />.<br />
+6.Now Copy the code generated in the section “Copy/paste onto your site”.<br />
+7.Now open your theme folder Vendetta and go to partials folder and then open newsletter.hbs file in notepad and delete everything inside the file and paste the code from mailchimp.<br />
+8.Now close the tab go to the admin panel and click on code injection in left side.<br />
+9.Go to the line no 34 to 39 on blog header section and remove the // from each line <strong>except line 36</strong>.<br />
+10.In future if you want to remove the newsletter just remove // from line 36.</p>
+<h1 id="google-analytics">Google Analytics</h1>
+<p>1.go to https://www.google.com/analytics/web/#home/ and click on sign up<img src="http://i.imgur.com/ZDdiboU.png" alt="Begin" /><br />
+2.Now fill in the form as appropriate and as shown here<img src="http://i.imgur.com/JKcdvC0.png" alt="Demo" /><br />
+3.Then accept the terms and condition and then you will see something like <img src="http://i.imgur.com/kjf7aHQ.png" alt="Main" /><br />
+4.Now copy the tracking ID as shown in the image.<br />
+5.Now close the tab and Go to the admin panel and click on code injection in left side.<br />
+6.Go to the line no 40 on blog header section and remove the // and replace the tracking code.</p>
+<h1 id="privacy-policy">Privacy policy</h1>
+<p>create a static page with url /privacy-policy in the admin panel.</p>
+<h1 id="advertisement">Advertisement</h1>
+<p>1.Go to the ghost folder then content -&gt; themes -&gt; partials.<br />
+2.Open the file “advertisement.hbs” file in notepad.<br />
+3.Copy the advertisement code in the “advertisement.hbs” file.</p>
+<h1 id="demo-file">Demo file</h1>
+<p>The code injected file for Vendetta looks like</p>
+<pre><code>    &lt;script&gt;
+        vendetta.url={
+            facebook:&quot;https://www.facebook.com/RedHive-Software-623049087845699/&quot;,
+            twitter:&quot;https://www.twitter.com/redhivesoftware&quot;,
+            tumblr:&quot;https://www.tumblr.com/blog/redhivesoftware&quot;,
+            gplus:&quot;http://plus.google.com/u/0/115145342026041498272&quot;,
+    //      youtube:&quot;your youtube url&quot;,
+    //      linkedin:&quot;your linkedin url&quot;,  
+            instagram:&quot;https://www.instagram.com/redhivesoftware&quot;,  
+            flickr:&quot;https://www.flickr.com/photos/redhivesoftware/&quot;,  
+            end:true
+        }
+        vendetta.comment={
+            disqus:&#39;vendetta123&#39;,
+        //  facebook:&#39;enabled&#39;,
+            end:true
+        }
+        vendetta.feed={
+    //      facebook:&#39;disabled&#39;,
+            twitter:{
+                id:&#39;696094298215940096&#39;
+            },
+            instagram:{
+                userId:&#39;2899013383&#39;,
+                accessToken:&#39;2899013383.a525e19.a119b4854c944131bbe5f6632ef76a48&#39;
+            },
+            flickr:{
+                qstrings:{
+                    id:&#39;139052977@N02&#39;
+                }
+            },
+            end:true
+        }
+        vendetta.newsletter={
+            popup:true,
+    //      hide:true,
+            time:10,
+            end:true
+        }
+        vendetta.analytics=&#39;UA-74085954-1&#39;;
+    &lt;/script&gt;</code></pre>
+<h1 id="how-to-change-the-favicon">How to change the favicon</h1>
+<p>1.Go to the ghost folder then content -&gt; themes -&gt; asset.<br />
+2.If already present then delete the file named “favicon.ico” and paste your icon file with name favicon.ico.</p>
+<h1 id="how-to-get-social-links-indexed-by-social-engines">How to get social links indexed by social engines</h1>
+<ol style="list-style-type: decimal">
+<li>Go to the admin panel and click on code injection in left side.<br />
+</li>
+<li><p>On Footer Section copy all your links inside double quotes seperated by comma</p>
+<p>For Example</p>
+<pre><code>        &quot;https://www.facebook.com/RedHive-Software-623049087845699/&quot;,
+        &quot;https://www.twitter.com/redhivesoftware&quot;,
+        &quot;https://www.tumblr.com/blog/redhivesoftware&quot;,
+        &quot;http://plus.google.com/u/0/115145342026041498272&quot;    </code></pre></li>
+</ol>
+<h1 id="credits">Credits</h1>
+<p>bootstrap.js / bootstrap.min.js – Bootstrap 3 - http://www.getbootstrap.com Jquery http://jquery.com Underscore http://underscorejs.org Backbone http://backbonejs.org Pixabay for Demo Images http://pixabay.com Fitvids http://fitvidsjs.com InstafeedJS http://instafeedjs.com Jflickrfeed http://www.newmediacampaigns.com/blog/a-jquery-flickr-feed-plugin FontAwesome Icons https://fortawesome.github.io/Font-Awesome/ Pacifico Google Font https://www.google.com/fonts/specimen/Pacifico Roboto Google Font https://www.google.com/fonts/specimen/Roboto Open Sans Google Font https://www.google.com/fonts/specimen/Open+Sans Owl-Carousel http://owlgraphic.com/owlcarousel/ xml2json http://www.fyneworks.com</p>
+<h1 id="release">Release</h1>
+<p>Version 1.0.0 Date 25 Apr,2016</p>
+</body>
+</html>

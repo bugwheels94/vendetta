@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{{! Document Settings }}
+	<meta charset="utf-8" />
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	{{! Page Meta }}
+	<title>{{meta_title}}</title>
+	<meta name="description" content="{{meta_description}}" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script>
+	var vendetta={
+		url:{},
+		follow:{},
+		comment:{},
+		feed:{}
+	};
+	var velma=vendetta;
+
+	function loadCss(url) {
+	var link = document.createElement("link");
+	link.type = "text/css";
+	link.rel = "stylesheet";
+	link.href = url;
+	document.getElementsByTagName("head")[0].appendChild(link);
+	}
+		var velma_url="{{asset "assets/"}}".split("?v=")[0];
+		loadCss(velma_url+"style.css");
+	</script>
+	<link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+	{{! Styles'n'Scripts }}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,700|Roboto:400|Rancho' rel='stylesheet' type='text/css'>
+	<script src="{{asset "assets/script.min.js"}}"></script>
+{{! Ghost outputs important style and meta data with this tag }}
+{{ghost_head}}
+{{> "google-analytics"}}
+</head>
+<body class="{{body_class}} container-fluid">
+	{{{body}}}
+	{{! Ghost outputs important scripts and data with this tag }}
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Organization",
+  "name" : "{{@blog.title}}",
+  "url" : "{{@blog.url}}",
+  "sameAs" : [
+	  {{ghost_foot}}
+  ]
+}
+</script>
+</body>
+</html>

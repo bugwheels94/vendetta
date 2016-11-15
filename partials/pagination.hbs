@@ -1,0 +1,40 @@
+<div class="row" role="navigation">
+    <ul class="pager col-sm-1">
+        {{#if prev}}
+            <li><a href="{{page_url prev}}"><span class='glyphicon glyphicon-menu-left' aria-hidden='true'></span></a><li>
+        {{/if}}
+    </ul>
+    <div class="col-sm-10 text-center">
+        <ul class="pagination" >
+        </ul>
+    </div>
+    <ul class="pager col-sm-1">
+        {{#if next}}
+        <li><a href="{{page_url next}}"><span class='glyphicon glyphicon-menu-right' aria-hidden='true'></span></a><li>
+        {{/if}}
+    </ul>
+</div>
+<script>
+$script(['https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'],function(){
+  $(function($){
+    var href='';
+    var href=window.location.href.replace(/page\/\d+\/$/g,"/")+"page/";
+    var pageTotal = {{pages}};
+    var pageCurrent = {{page}};
+    var nav = $('.pagination');
+    var left=Math.min(pageCurrent-1,4);
+    var right=Math.min(pageTotal-pageCurrent,4);
+    if(left<4)
+        right+=4-left;
+    if(right<4)
+        left+=4-right;
+    if(pageCurrent>5)
+        nav.append("<li><a href=/page/1>1</a></li>");
+    for (i = Math.max(pageCurrent-left,1);i<=Math.min(pageTotal,pageCurrent+right); i++) {
+        nav.append("<li "+(i===pageCurrent?"class='active'":"")+"><a href="+href + i + ">" + i + "</a></li>");
+    }
+    if((pageTotal-pageCurrent)>4)
+        nav.append("<li><a href="+href + pageTotal + ">" + pageTotal + "</a></li>");
+  });
+});
+</script>

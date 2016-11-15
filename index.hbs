@@ -1,0 +1,15 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+{{! The big featured header }}
+{{! The main content area on the homepage }}
+{{! Everything else gets inserted here }}
+{{> "fancyHeader"}}
+<div class="row priority post-list-container-container">
+	<main role="main" class="col-md-10 col-md-offset-1 ptb50 mt30 post-list-container">
+		{{! The tag below includes the post loop - partials/loop.hbs }}
+		<div class="row">
+		{{> "loop"}}
+	</div>
+	</main>
+</div>
+{{> "fancyFooter"}}
