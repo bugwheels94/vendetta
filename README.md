@@ -1,3 +1,10 @@
+[![alt text][2]][1]
+
+[1]: http://valerie-redhivesoftware.rhcloud.com
+[2]: http://i.imgur.com/5bnZ3nN.png (Demo)
+#  
+[Vendetta Theme](http://valerie-redhivesoftware.rhcloud.com)
+#  
 # Vendetta documentation
 
 #How to open the admin panel
